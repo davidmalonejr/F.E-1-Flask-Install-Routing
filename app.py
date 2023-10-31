@@ -33,3 +33,7 @@ def greet_user(user_id):
 	except IndexError:
 		abort(404)
 
+@app.route('/myName/<first>/<middle>/<last>')
+def name(first, middle, last):
+	fullName = first.capitalize() + " " + middle.capitalize() + " " + last.capitalize()
+	return '<h1>{}</h1>'.format(escape(fullName))
